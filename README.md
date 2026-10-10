@@ -1,48 +1,93 @@
-# Market Hub Allinone
+# MarketHub – Multi-Vendor E-Commerce Frontend
 
-Build a modern, responsive multi-vendor e-commerce website called "MarketHub" using React, TypeScript, Tailwind CSS, and reusable components.
+MarketHub is a responsive multi-vendor e-commerce web application with three user roles: **Admin**, **Seller** and **Buyer**. This repository contains the frontend, built with React, TypeScript and Tailwind CSS using realistic sample data.
 
-The application has three roles: Admin, Seller, and Buyer.
+> **Project status:** Frontend only. Authentication, payments and database persistence are **not implemented yet** (see [Roadmap](#roadmap)). All data shown comes from sample data.
 
-Design requirements:
+## Live Demo
 
-Create a premium, clean shopping interface with a responsive navbar, search bar, product categories, product cards, product images, prices, ratings, and a shopping cart icon.
+- Live preview: _add your published Lovable / deployed URL here_
+- Screenshots: see the [`docs/screenshots`](docs/screenshots) folder _(add images here)_
 
-Create a homepage, product listing page, product details page, login page, and registration page.
+## Features
 
-Create separate dashboard layouts for Admin, Seller, and Buyer with role-specific sidebars, navigation, summary cards, tables, and charts.
+**Storefront**
+- Homepage, product listing, product details, login and registration pages
+- Search bar, category filters, product cards with images, prices and ratings
+- Wishlist and sample shopping bag
 
-Admin dashboard: user management, product management, order management, and activity monitoring.
+**Admin dashboard**
+- User management, product management, order management, activity monitoring
 
-Seller dashboard: product listings, inventory management, order processing, sales reports, and low-stock alerts.
+**Seller dashboard**
+- Product listings, inventory management, order processing, sales reports, low-stock alerts
 
-Buyer dashboard: order history, order tracking, wishlist, recently viewed products, profile, addresses, and payment method management.
+**Buyer dashboard**
+- Order history and tracking, wishlist, recently viewed products, profile, addresses, payment methods
 
-Use a consistent design system, clear typography, good spacing, loading states, empty states, and responsive layouts.
+**Design**
+- Consistent design system, responsive layouts, loading states and empty states
 
-Use realistic sample data for the initial interface, clearly separated from production data.
+## Tech Stack
 
-Make all navigation and visible controls functional wherever possible.
+- React + TypeScript
+- Tailwind CSS
+- Vite
+- Vitest (testing)
+- ESLint + Prettier
+- Bun / npm for package management
 
-Do not claim that authentication, payments, or database persistence are implemented yet. First build and review the frontend structure, then explain the files created.
+## Getting Started
 
-This project was built with [Lovable](https://lovable.dev).
+Prerequisites: Node.js (v18+) and npm, or Bun.
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2fa2fb8e-a76e-5d81-bd93-a811b77eee13).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+git clone https://github.com/aditya-glitch-bit/market-hub-allinone.git
+cd market-hub-allinone
+npm install
 npm run dev
 ```
+
+Then open the local URL printed in the terminal (usually http://localhost:5173).
+
+Other useful commands:
+
+```bash
+npm run build    # production build
+npm run lint     # lint the code
+npm test         # run tests (if configured)
+```
+
+## Project Structure
+
+```
+market-hub-allinone/
+├── public/            # Static assets
+├── src/               # Application source code (pages, components, data, utilities)
+├── docs/              # Project report and screenshots
+├── FRONTEND.md        # Detailed guide to the frontend files
+├── roadmap.md         # Planned work
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
+```
+
+See [`FRONTEND.md`](FRONTEND.md) for a file-by-file explanation of `src/`.
+
+## Roadmap
+
+- [ ] Authentication with role-based access (Admin / Seller / Buyer)
+- [ ] Backend and database for products, users and orders
+- [ ] Payment integration
+- [ ] Persistent cart and wishlist
+- [ ] Real order tracking
+
+See [`roadmap.md`](roadmap.md) for details.
+
+## Author
+
+Aditya – built as a project for GUVI.
+
+## Acknowledgements
+
+Initial interface generated with [Lovable](https://lovable.dev).
