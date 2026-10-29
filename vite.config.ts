@@ -7,6 +7,13 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Local development: forward "/api" to the Java backend (mvn exec:java, port 8080), just like
+  // src/server.ts does in production.
+  vite: {
+    server: {
+      proxy: { "/api": { target: "http://127.0.0.1:8080", changeOrigin: true } },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

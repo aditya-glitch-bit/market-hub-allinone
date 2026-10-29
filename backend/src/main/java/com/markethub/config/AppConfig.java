@@ -45,7 +45,8 @@ public final class AppConfig {
     /** Reads configuration from the environment, falling back to development defaults. */
     public static AppConfig fromEnvironment() {
         return new AppConfig(
-                Integer.parseInt(read("MARKETHUB_PORT", "8080")),
+                // Hosting platforms (Render, Railway, Heroku) announce the port as plain PORT.
+                Integer.parseInt(read("MARKETHUB_PORT", read("PORT", "8080"))),
                 read("MARKETHUB_DB_URL", DEFAULT_DB_URL),
                 read("MARKETHUB_DB_USER", "sa"),
                 read("MARKETHUB_DB_PASSWORD", ""),

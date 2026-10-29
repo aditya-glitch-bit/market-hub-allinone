@@ -26,11 +26,20 @@ On first start an empty database is created from `src/main/resources/schema.sql`
 demo data (set `MARKETHUB_SEED=false` to disable). The React frontend (`npm run dev`, port 5173)
 is allowed through CORS by default.
 
+### Docker
+
+```bash
+docker build -t markethub-api backend
+docker run -p 8080:8080 markethub-api
+```
+
+Hosting platforms that set a plain `PORT` variable (Render, Railway) work without changes. All demo accounts use the password `Demo@1234` (for example `olivia@example.com` buyer, `hello@example.com` seller, `admin@example.com` admin).
+
 ### Configuration (environment variables)
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `MARKETHUB_PORT` | `8080` | HTTP port |
+| `MARKETHUB_PORT` (or `PORT`) | `8080` | HTTP port |
 | `MARKETHUB_DB_URL` | embedded H2 file in `./data` | JDBC URL, e.g. `jdbc:mysql://localhost:3306/markethub` |
 | `MARKETHUB_DB_USER` / `MARKETHUB_DB_PASSWORD` | `sa` / empty | Database credentials |
 | `MARKETHUB_CORS_ORIGIN` | `http://localhost:5173` | Allowed frontend origin |

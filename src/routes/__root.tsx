@@ -12,8 +12,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { DemoStore } from '@/components/market/store';
-import { Header, Footer } from '@/components/market/Shell';
+import { DemoStore } from "@/components/market/store";
+import { MarketProvider } from "@/components/market/market";
+import { Header, Footer } from "@/components/market/Shell";
 
 function NotFoundComponent() {
   return (
@@ -91,7 +92,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -119,11 +123,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <DemoStore>
-        <Header />
-        <Outlet />
-        <Footer />
-      </DemoStore>
+      <MarketProvider>
+        <DemoStore>
+          <Header />
+          <Outlet />
+          <Footer />
+        </DemoStore>
+      </MarketProvider>
     </QueryClientProvider>
   );
 }

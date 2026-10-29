@@ -1,0 +1,13 @@
+# Render blueprint: deploys the Java backend as a Docker web service.
+# In Render: New + > Blueprint > pick this repository.
+services:
+  - type: web
+    name: markethub-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: MARKETHUB_SEED
+        value: "true"
